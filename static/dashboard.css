@@ -1,0 +1,256 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400..800&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Baloo Paaji 2", sans-serif;
+  background-color: #0b0c15;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+.MenuBar {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  background-color: #141620;
+  align-items: center; /* Centers elements vertically */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.logo-container i {
+  font-size: 24px;
+  margin-right: 10px; /* Adds space between icon and text */
+  color: white;
+}
+
+#LogoText {
+  font-family: "Baloo Paaji 2", sans-serif;
+  font-size: 24px;
+  color: white;
+}
+
+.ProfileButton img {
+  width: 40px;
+  height: 40px;
+  filter: none; /* Ensure no filter affects the color */
+}
+
+.ProfileButton {
+  background-color: #141620;
+  cursor: pointer;
+}
+
+.content {
+  margin: 20px;
+}
+
+.movie-carousel-container {
+  position: relative;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Gradient fade for the edges */
+.movie-carousel {
+  display: flex;
+  overflow: hidden;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px 0;
+  scroll-behavior: smooth;
+
+  /* Apply the fading gradient */
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.6) 5%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0.6) 95%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.movie-card {
+  background-color: #1c1f2c;
+  border-radius: 10px;
+  color: white;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-right: 20px;
+  min-width: 150px; /* Minimum width */
+  max-width: 150px; /* Maximum width */
+  transition: transform 0.3s ease-in-out;
+  flex: 0 0 200px; /* Sets a fixed width for movie cards */
+  max-width: 200px; /* Ensures the card doesn't grow beyond this width */
+  text-align: center; /* Centers the content inside the movie card */
+}
+
+.movie-poster {
+  width: 100%;
+  max-height: 200px; /* Set max height to control the size */
+  object-fit: contain; /* Ensure the entire image is shown */
+}
+
+.movie-title {
+  font-size: 14px; /* Font size for movie title */
+}
+
+.movie-rating {
+  font-size: 12px; /* Font size for movie rating */
+  margin-bottom: 10px; /* Space below the rating */
+}
+
+.movie-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.movie-container {
+  display: flex; /* Enables flexbox layout */
+  flex-wrap: wrap; /* Allows items to wrap to the next line if there isn't enough space */
+  gap: 20px; /* Space between movie cards */
+  justify-content: flex-start; /* Aligns items to the start */
+  margin: 20px 0; /* Adds vertical spacing between sections */
+}
+
+.like-btn,
+.dislike-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.like-btn:hover {
+  color: green;
+}
+
+.dislike-btn:hover {
+  color: red;
+}
+
+.scroll-arrow {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.left-arrow {
+  left: 0;
+}
+
+.right-arrow {
+  right: 0;
+}
+
+.scroll-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.Text {
+  color: white;
+}
+
+.InputBox {
+  position: relative;
+  width: 250px;
+  padding-top: 10px;
+}
+
+.InputBox input {
+  width: 100%;
+  padding: 10px;
+  border: 3px solid rgba(28, 31, 44, 1);
+  background: #0b0c15;
+  border-radius: 5px;
+  outline: none;
+  color: #fff;
+  font-size: 1em;
+  height: 50px;
+}
+.InputBox span {
+  position: absolute;
+  left: 0;
+  padding: 10px;
+  padding-left: 15px;
+
+  pointer-events: none;
+  font-size: 1em;
+  color: rgba(28, 31, 44, 1);
+  text-transform: uppercase;
+  font-style: bold;
+  transition: 0.5s;
+}
+.InputBox input:valid ~ span,
+.InputBox input:focus ~ span {
+  color: #fff;
+  transform: translateX(10px) translateY(-7px);
+  font-size: 0.65em;
+  padding: 0 10px;
+  background: #0b0c15;
+  border-left: 3px solid #fff;
+  border-right: 3px solid #fff;
+  letter-spacing: 0.2em;
+}
+.InputBox input:valid,
+.InputBox input:focus {
+  border: 3px solid #fff;
+}
+
+.search-container {
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Align items vertically in the center */
+  margin-top: 10px; /* Space above the search container */
+  margin-bottom: 10px;
+}
+
+#search {
+  color: #fff;
+  padding: 14px 20px; /* Adjust padding as needed */
+  background: #1c1f2c;
+  margin-left: 5px;
+  border-radius: 5px; /* Change to match input field */
+  border: none; /* Remove border */
+  cursor: pointer; /* Change cursor on hover */
+  height: 50px; /* Match the height of the input field */
+  display: flex; /* Use flex to center text in the button */
+  align-items: center; /* Center text vertically */
+  justify-content: center; /* Center text horizontally */
+  margin-top: 10px;
+}
+
+.search-container {
+  display: flex; /* Use flexbox for layout */
+  align-items: stretch; /* Stretch items to fill the container height */
+  margin-top: 10px; /* Space above the search container */
+}
+
+.alert{
+  color: #fff;
+}
+
+
+

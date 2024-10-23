@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/static/dashboard.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="content">
+      <div class="MenuBar">
+        <div class="logo-container">
+          <i class="fa-solid fa-computer"></i>
+          <h1 id="LogoText" class="Text">Panda Pal</h1>
+        </div>
+        <button type="button" class="ProfileButton" onclick="log()">
+          <img
+            src="{{ url_for('static', filename='Images/UserIconWhite.png') }}"
+          />
+        </button>
+      </div>
+      <h1 class="Text">Welcome, {{ username }}!</h1>
+
+      <!-- Movie Carousel -->
+      <h2 class="Text">Recommended Movies</h2>
+      <div class="movie-carousel-container">
+        <button class="scroll-arrow left-arrow" onclick="scrollCarouselLeft()">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <div class="movie-carousel" id="movie-carousel">
+          {% for movie in recommended_movies %}
+          <div class="movie-card">
+            <img
+              src="http://image.tmdb.org/t/p/w500/{{ movie.poster_path }}"
+              alt="{{ movie.title }}"
+              class="movie-poster"
+            />
+            <h3 class="movie-title">{{ movie.title }}</h3>
+            <p class="movie-rating">Rating: {{ movie.vote_average }}</p>
+          </div>
+          {% endfor %}
+        </div>
+        <button
+          class="scroll-arrow right-arrow"
+          onclick="scrollCarouselRight()"
+        >
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <h2 class="Text">Liked Movies</h2>
+      <div id="liked-movies" class="movie-container">
+        {% for movie in liked_movies %}
+        <div class="movie-card">
+          <img
+            src="http://image.tmdb.org/t/p/w500/{{ movie.poster_path }}"
+            alt="{{ movie.title }}"
+            class="movie-poster"
+          />
+          <h3 class="movie-title">{{ movie.title }}</h3>
+          <p class="movie-rating">Rating: {{ movie.vote_average }}</p>
+        </div>
+        {% endfor %}
+      </div>
+
+      <h2 class="Text">Disliked Movies</h2>
+      <div id="disliked-movies" class="movie-container">
+        {% for movie in disliked_movies %}
+        <div class="movie-card">
+          <img
+            src="http://image.tmdb.org/t/p/w500/{{ movie.poster_path }}"
+            alt="{{ movie.title }}"
+            class="movie-poster"
+          />
+          <h3 class="movie-title">{{ movie.title }}</h3>
+          <p class="movie-rating">Rating: {{ movie.vote_average }}</p>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="search">
+        <h1 class="Text">Movie Search</h1>
+        <div class="search-container">
+          <div id="fetch" class="InputBox">
+            <input type="text" id="term" required="required" />
+            <span>Enter a movie title</span>
+          </div>
+          <button id="search">Find</button>
+        </div>
+        <!-- Resulting movie card will be displayed here -->
+        <div id="poster"></div>
+      </div>
+    </div>
+    <script src="/static/dashboard.js"></script>
+  </body>
+</html>

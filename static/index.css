@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.hero {
+  height: 100%;
+  width: 100%;
+  background-color: #0b0c15;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+}
+
+.form-box {
+  width: 380px;
+  height: 480px;
+  position: relative;
+  margin: 6% auto;
+  background: #1c1f2c;
+  padding: 5px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.button-box {
+  width: 220px;
+  margin: 35px auto;
+  position: relative;
+  box-shadow: 0 0 20px 9px #ff61241f;
+  border-radius: 30px;
+  box-shadow: inset -2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-btn {
+  padding: 10px 33px;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  outline: none;
+  position: relative;
+}
+
+#btn {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 110px;
+  height: 100%;
+  background: linear-gradient(to right, #ff105f, #ffad06);
+  border-radius: 30px;
+  transition: 0.5s;
+}
+.input-group {
+  top: 180px;
+  position: absolute;
+  width: 280px;
+  transition: 0.5s;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px 0;
+  margin: 5px 0;
+  border-left: 0;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px solid #999;
+  outline: none;
+  background: transparent;
+  color: #fff;
+}
+
+.submit-btn {
+  width: 85%;
+  padding: 10px 30px;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto;
+  background: linear-gradient(to right, #ff105f, #ffad06);
+  border: 0;
+  outline: none;
+  border-radius: 30px;
+}
+
+span {
+  color: #777;
+  font-size: 12px;
+  bottom: 68px;
+  position: absolute;
+}
+
+#login {
+  left: 50px;
+}
+
+#register {
+  left: 450px;
+}
+
+/* You can customize the calendar icon style here if needed */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg); /* Adjust values as needed */
+  cursor: pointer;
+}
+.gender-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.gender-button {
+  background-color: transparent;
+  border: 2px solid transparent; /* Keep the border transparent when deselected */
+  border-radius: 50%;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 24px;
+  transition: color 0.3s ease, border-color 0.5s ease; /* Smooth transition for icon color and border color */
+  box-sizing: border-box;
+}
+
+.gender-button i {
+  color: #ccc; /* Default icon color when not selected */
+  transition: color 0.3s ease; /* Smooth transition for icon color */
+}
+
+/* Selected styles */
+.gender-male.selected {
+  border-color: #68d0e8; /* Blue border when selected */
+}
+
+.gender-female.selected {
+  border-color: #e4196a; /* Pink border when selected */
+}
+
+.gender-male.selected i {
+  color: #68d0e8; /* Blue icon when selected */
+}
+
+.gender-female.selected i {
+  color: #e4196a; /* Pink icon when selected */
+}
